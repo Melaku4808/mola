@@ -1,6 +1,6 @@
 const products = [
   { id: 1, name: "Borehole Drill", price: 100000, description: "Long-lasting durability drilling machine.", image: "borholedrill.jpeg", category: "Machines" },
-  { id: 2, name: "Solar Well Pump", price: 999.99, description: "Affordable and reliable.", image: "solaewellpump.JPG", category: "Pumps" },
+  { id: 2, name: "Solar Well Pump", price: 999.99, description: "Affordable and reliable.", image: "images.JPEG", category: "Pumps" },
   { id: 3, name: "Solar Panel", price: 199.99, description: "Long Durability Time.", image: "solar panel.jpg", category: "Electronics" },
   { id: 4, name: "Solar Street Pole", price: 899.99, description: "Includes new Technologies.", image: "solar street pole.jpeg", category: "Lighting" },
   { id: 5, name: "Water Pump", price: 1000.99, description: "Long-lasting durability.", image: "water pump.jpeg", category: "Pumps" },
