@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ministry of Water and Energy Shopping Cart</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome To Water and Energy Product List</h1>
+    <div id="cart" role="region" aria-labelledby="cart-button">
+      <button id="cart-button" onclick="toggleCart()" aria-haspopup="dialog" aria-controls="cart-modal" aria-label="Open shopping cart">
+        Cart (<span id="cart-count">0</span>)
+      </button>
+    </div>
+    <div id="search-container">
+      <input type="text" id="search-bar" placeholder="Search products..." oninput="searchProducts()" aria-label="Search products by name or category">
+    </div>
+  </header>
+
+  <main>
+    <section class="product-list" role="region" aria-labelledby="product-list-heading">
+      <h2 id="product-list-heading" class="sr-only">Product List</h2>
+      <!-- Product items will be dynamically inserted here -->
+    </section>
+  </main>
+
+  <!-- Product Detail Modal -->
+  <div id="product-detail-modal" class="modal" role="dialog" aria-labelledby="product-name" aria-hidden="true">
+    <div class="modal-content">
+      <h2 id="product-name"></h2>
+      <img id="product-image" src="" alt="" role="img" aria-describedby="product-description">
+      <p id="product-description"></p>
+      <div class="price">
+        <span>$<span id="product-price">0.00</span></span>
+      </div>
+      <button id="add-to-cart-button" onclick="addToCart()">Add to Cart</button>
+      <button onclick="closeProductDetail()" aria-label="Close product details">Close</button>
+    </div>
+  </div>
+
+  <!-- Cart Modal -->
+  <div id="cart-modal" class="modal" role="dialog" aria-labelledby="cart-modal-heading" aria-hidden="true">
+    <div class="cart-content">
+      <h2 id="cart-modal-heading">Your Cart</h2>
+      <ul id="cart-items" role="list"></ul>
+      <div class="total">
+        <span>Total: $<span id="total-price">0.00</span></span>
+      </div>
+      <button onclick="clearCart()" aria-label="Clear all items from the cart">Clear Cart</button>
+      <button onclick="openCheckoutModal()" aria-label="Proceed to checkout">Checkout</button>
+      <button onclick="toggleCart()" aria-label="Close shopping cart">Close</button>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div id="checkout-modal" class="modal" role="dialog" aria-labelledby="checkout-heading" aria-hidden="true">
+    <div class="checkout-content">
+      <h2 id="checkout-heading">Checkout</h2>
+      <form id="checkout-form" onsubmit="return validateCheckoutForm()" novalidate>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your name">
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email">
+        
+        <label for="address">Address</label>
+        <textarea id="address" name="address" required placeholder="Enter your shipping address"></textarea>
+
+        <button type="submit" aria-label="Submit checkout details">Submit Order</button>
+      </form>
+      <button onclick="closeCheckoutModal()" aria-label="Close checkout form">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
